@@ -5,7 +5,10 @@ use tracing::error;
 
 use crate::client::LichessApi;
 use crate::error::Result;
+use crate::model::studies::import_pgn_into_study::PostRequest;
 use crate::model::studies::*;
+
+use self::import_pgn_into_study::StudyImportPgnChapters;
 
 impl LichessApi<reqwest::Client> {
     pub async fn export_one_chapter(
@@ -56,5 +59,9 @@ impl LichessApi<reqwest::Client> {
         }
 
         Ok(study_chapter)
+    }
+
+    pub async fn import_pgn_into_study(&self, request: PostRequest) -> Result<StudyImportPgnChapters> {
+        self.get_single_model(request).await
     }
 }

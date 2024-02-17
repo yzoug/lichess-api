@@ -1,4 +1,5 @@
 pub mod export_one_chapter;
+pub mod import_pgn_into_study;
 
 use std::str::FromStr;
 
@@ -92,6 +93,7 @@ pub struct StudyChapter {
     pub headers: Vec<StudyHeader>,
     pub sections: Vec<StudySection>,
 }
+
 
 #[derive(Clone, Debug, Serialize, Deserialize, Default)]
 pub struct StudySection {
